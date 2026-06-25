@@ -8,3 +8,25 @@ class GenericExtractionResult(BaseModel):
     summary: str = Field(description="Resumo curto do conteúdo")
     extracted_fields: dict[str, Any] = Field(default_factory=dict)
     limitations: list[str] = Field(default_factory=list)
+
+class CNHExtractionResult(BaseModel):
+    document_type: str = "CNH"
+    extracted_fields: dict[str, Any] = Field(default_factory=dict)
+    confidence_notes: list[str] = Field(default_factory=list)
+    limitations: list[str] = Field(default_factory=list)
+
+
+class InvoiceExtractionResult(BaseModel):
+    document_type: str = "Fatura de Energia"
+    extracted_fields: dict[str, Any] = Field(default_factory=dict)
+    confidence_notes: list[str] = Field(default_factory=list)
+    limitations: list[str] = Field(default_factory=list)
+
+
+class PaperExtractionResult(BaseModel):
+    document_type: str = "Artigo"
+    summary: str
+    sections: list[dict[str, Any]] = Field(default_factory=list)
+    tables_detected: list[str] = Field(default_factory=list)
+    figures_or_charts_detected: list[str] = Field(default_factory=list)
+    limitations: list[str] = Field(default_factory=list)

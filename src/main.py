@@ -17,6 +17,13 @@ def main():
     )
 
     parser.add_argument(
+    "--case",
+    default="generic",
+    choices=["generic", "cnh", "invoice", "paper"],
+    help="Tipo de documento a ser processado."
+    )
+
+    parser.add_argument(
         "--output",
         default="outputs/result.json",
         help="Caminho do arquivo JSON de saída."
@@ -25,7 +32,7 @@ def main():
     args = parser.parse_args()
 
     extractor = DocumentExtractor()
-    result = extractor.extract_generic(args.input)
+    result = extractor.extract(args.input, case=args.case)
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
