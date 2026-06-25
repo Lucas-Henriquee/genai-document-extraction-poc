@@ -38,7 +38,10 @@ def main():
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     with open(output_path, "w", encoding="utf-8") as file:
-        json.dump(result.model_dump(), file, ensure_ascii=False, indent=2)
+        if isinstance(result, str):
+            file.write(result)
+        else:
+            json.dump(result.model_dump(), file, ensure_ascii=False, indent=2)
 
     print(f"Resultado salvo em: {output_path}")
 

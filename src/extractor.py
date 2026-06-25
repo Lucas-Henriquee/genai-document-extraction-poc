@@ -77,25 +77,18 @@ class DocumentExtractor:
     Não inclua texto fora do JSON.
     """,
             "paper": """
-    Você é um sistema de extração e estruturação de documentos técnicos extensos.
+    Você é um sistema de extração de conteúdo técnico.
 
-    Analise o documento enviado e retorne somente um JSON válido com esta estrutura:
+    Converta o documento inteiro para Markdown seguindo estas regras:
+    - Preserve títulos e hierarquia de seções usando #, ## e ###
+    - Preserve o texto corrido sem transformar tudo em resumo
+    - Converta tabelas para formato Markdown usando | coluna | coluna |
+    - Para cada figura, gráfico ou imagem, escreva: [FIGURA: descrição do conteúdo visual e principais informações interpretadas]
+    - Preserve listas, bullets, equações e referências quando possível
+    - Não omita seções importantes
+    - Não retorne JSON
 
-    {
-    "document_type": "Documento Técnico ou Artigo",
-    "summary": "resumo objetivo do documento",
-    "sections": [
-        {
-        "title": "nome da seção",
-        "content_summary": "resumo da seção"
-        }
-    ],
-    "tables_detected": ["descrição das tabelas identificadas"],
-    "figures_or_charts_detected": ["descrição de figuras, gráficos ou imagens identificadas"],
-    "limitations": ["limitações da extração"]
-    }
-
-    Não inclua texto fora do JSON.
+    Retorne apenas o Markdown final, sem texto explicativo antes ou depois.
     """,
             }
 
@@ -129,6 +122,10 @@ class DocumentExtractor:
     def extract(self, file_path: str, case: str = "generic"):
         prompt = self._build_prompt(case)
         raw_response = self.client.generate_from_document(file_path, prompt)
+
+        if case == "paper":
+            return raw_response
+
         cleaned_response = self._clean_json_response(raw_response)
 
         try:
