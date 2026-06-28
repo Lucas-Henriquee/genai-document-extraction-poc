@@ -2,7 +2,7 @@ import mimetypes
 from pathlib import Path
 
 from google import genai
-from google.genai import types
+from google.genai import types, errors
 import time
 
 from config import settings
@@ -49,13 +49,47 @@ class GeminiClient:
         )
 
         print("Chamando modelo Gemini...")
+        max_attempts = 3
 
-        response = self.client.models.generate_content(
-            model=self.model,
-            contents=[file_part, prompt],
-        )
+        for attempt in range(1, max_attempts + 1):
+            try:
+                attempt_start = time.perf_counter()
 
-        total_end = time.perf_counter()
-        print(f"Tempo total: {total_end - total_start:.2f} segundos")
+                response = self.client.models.generate_content(
+                    model=self.model,
+                    contents=[file_part, prompt],
+                )
 
-        return response.text.strip()
+                attempt_time = time.perf_counter() - attempt_start
+                total_time = time.perf_counter() - total_start
+
+                print(f"Resposta recebida em {attempt_time:.2f} segundos")
+                print(f"Tempo total: {total_time:.2f} segundos")
+
+                return response.text.strip()
+
+            except errors.ServerError as error:
+                if attempt == max_attempts:
+                    raise error
+
+                wait_seconds = 10 * attempt
+                print(
+                    f"Tentativa {attempt}/{max_attempts} falhou por indisponibilidade do servidor "
+                    f"Aguardando {wait_seconds}s antes de tentar novamente..."
+                )
+                time.sleep(wait_seconds)
+
+            except errors.ClientError as error:
+                status_code = getattr(error, "status_code", None)
+
+                if status_code != 429 or attempt == max_attempts:
+                    raise error
+
+                wait_seconds = 20 * attempt
+                print(
+                    f"Tentativa {attempt}/{max_attempts} falhou por rate limit "
+                    f"Aguardando {wait_seconds}s antes de tentar novamente..."
+                )
+                time.sleep(wait_seconds)
+
+        raise RuntimeError("Falha inesperada ao chamar o modelo")

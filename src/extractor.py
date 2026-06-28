@@ -1,111 +1,16 @@
 import json
 
 from gemini_client import GeminiClient
+from prompts import PROMPTS
 from schemas import (
     CNHExtractionResult,
     GenericExtractionResult,
     InvoiceExtractionResult,
-    PaperExtractionResult,
 )
 
 class DocumentExtractor:
     def __init__(self):
         self.client = GeminiClient()
-
-    @staticmethod
-    def _build_prompt(case: str) -> str:
-        prompts = {
-            "generic": """
-    Você é um sistema de extração de dados de documentos.
-
-    Analise o documento enviado e retorne somente um JSON válido com esta estrutura:
-
-    {
-    "document_type": "tipo provável do documento",
-    "summary": "resumo curto do conteúdo",
-    "extracted_fields": {
-        "campo": "valor"
-    },
-    "limitations": ["limitações ou campos incertos"]
-    }
-
-    Não inclua texto fora do JSON.
-    """,
-            "cnh": """
-    Você é um sistema de extração de dados de documentos brasileiros.
-
-    Analise a CNH enviada e retorne somente um JSON válido com esta estrutura:
-
-    {
-    "document_type": "CNH",
-    "extracted_fields": {
-        "nome": null,
-        "cpf": null,
-        "data_nascimento": null,
-        "data_emissao": null,
-        "data_validade": null,
-        "categoria": null,
-        "filiacao_pai": null,
-        "filiacao_mae": null
-    },
-    "confidence_notes": ["campos incertos ou não encontrados"],
-    "limitations": ["limitações da extração"]
-    }
-
-    Não inclua texto fora do JSON.
-    """,
-            "invoice": """
-    Você é um sistema de extração de dados de faturas de energia elétrica.
-
-    Analise a fatura enviada e retorne somente um JSON válido com esta estrutura:
-
-    {
-    "document_type": "Fatura de Energia",
-    "extracted_fields": {
-        "titular": null,
-        "endereco": null,
-        "numero_cliente": null,
-        "mes_referencia": null,
-        "data_vencimento": null,
-        "valor_total": null,
-        "consumo_kwh": null
-    },
-    "confidence_notes": ["campos incertos ou não encontrados"],
-    "limitations": ["limitações da extração"]
-    }
-
-    Não inclua texto fora do JSON.
-    """,
-            "paper": """
-    Você é um sistema de extração de conteúdo técnico.
-
-    Converta o documento inteiro para Markdown seguindo estas regras:
-    - Preserve títulos e hierarquia de seções usando #, ## e ###
-    - Preserve o texto corrido sem transformar tudo em resumo
-    - Converta tabelas para formato Markdown usando | coluna | coluna |
-    - Para cada figura, gráfico ou imagem, escreva: [FIGURA: descrição do conteúdo visual e principais informações interpretadas]
-    - Preserve listas, bullets, equações e referências quando possível
-    - Não omita seções importantes
-    - Não retorne JSON
-
-    Retorne apenas o Markdown final, sem texto explicativo antes ou depois.
-    """,
-            }
-
-        return prompts[case]
-    
-    @staticmethod
-    def _parse_result(case: str, data: dict):
-        if case == "cnh":
-            return CNHExtractionResult(**data)
-
-        if case == "invoice":
-            return InvoiceExtractionResult(**data)
-
-        if case == "paper":
-            return PaperExtractionResult(**data)
-
-        return GenericExtractionResult(**data)
 
     @staticmethod
     def _clean_json_response(text: str) -> str:
@@ -118,6 +23,23 @@ class DocumentExtractor:
             return text.replace("```", "").strip()
 
         return text
+
+    @staticmethod
+    def _build_prompt(case: str) -> str:
+        if case not in PROMPTS:
+            raise ValueError(f"Tipo de documento não suportado: {case}")
+
+        return PROMPTS[case]
+
+    @staticmethod
+    def _parse_result(case: str, data: dict):
+        if case == "cnh":
+            return CNHExtractionResult(**data)
+
+        if case == "invoice":
+            return InvoiceExtractionResult(**data)
+
+        return GenericExtractionResult(**data)
 
     def extract(self, file_path: str, case: str = "generic"):
         prompt = self._build_prompt(case)

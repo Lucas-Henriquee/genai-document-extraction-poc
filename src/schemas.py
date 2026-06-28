@@ -15,18 +15,10 @@ class CNHExtractionResult(BaseModel):
     confidence_notes: list[str] = Field(default_factory=list)
     limitations: list[str] = Field(default_factory=list)
 
-
 class InvoiceExtractionResult(BaseModel):
     document_type: str = "Fatura de Energia"
     extracted_fields: dict[str, Any] = Field(default_factory=dict)
-    confidence_notes: list[str] = Field(default_factory=list)
-    limitations: list[str] = Field(default_factory=list)
-
-
-class PaperExtractionResult(BaseModel):
-    document_type: str = "Artigo"
-    summary: str
-    sections: list[dict[str, Any]] = Field(default_factory=list)
+    layout_sections: list[dict[str, Any]] = Field(default_factory=list)
     tables_detected: list[str] = Field(default_factory=list)
-    figures_or_charts_detected: list[str] = Field(default_factory=list)
+    confidence_notes: list[str] = Field(default_factory=list)
     limitations: list[str] = Field(default_factory=list)
