@@ -1,0 +1,4 @@
+case,count,mean_seconds,min_seconds,max_seconds
+cnh,2,6.55,6.4,6.71
+invoice,2,25.09,20.39,29.79
+paper,2,208.3,151.09,265.51

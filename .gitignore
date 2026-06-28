@@ -8,3 +8,6 @@ outputs/experiments/*
 
 reports/*
 !reports/.gitkeep
+
+!reports/experiment_results.csv
+!reports/latency_summary.csv

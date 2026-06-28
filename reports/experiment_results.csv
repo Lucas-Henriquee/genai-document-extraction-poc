@@ -1,0 +1,7 @@
+case,run,input_file,file_size_mb,output_file,total_time_seconds,status
+cnh,1,data/samples/cnh_sample.jpeg,0.08,outputs/experiments/cnh_run_1.json,6.40,success
+cnh,2,data/samples/cnh_sample.jpeg,0.08,outputs/experiments/cnh_run_2.json,6.71,success
+invoice,1,data/samples/energy_invoice.jpg,0.08,outputs/experiments/invoice_run_1.json,20.39,success
+invoice,2,data/samples/energy_invoice.jpg,0.08,outputs/experiments/invoice_run_2.json,29.79,success
+paper,1,data/samples/claude_paper.pdf,26.93,outputs/experiments/paper_run_1.md,265.51,success
+paper,2,data/samples/claude_paper.pdf,26.93,outputs/experiments/paper_run_2.md,151.09,success
