@@ -1,0 +1,291 @@
+{
+  "document_type": "Fatura de Energia",
+  "extracted_fields": {
+    "titular": "MARIA JOSÉ DA SILVA",
+    "endereco": "RUA JOÃO FERNANDES VIEIRA 175, BOA VISTA, 50680-150",
+    "numero_cliente": "1234567890",
+    "mes_referencia": "06/2014",
+    "data_vencimento": "10/07/2014",
+    "valor_total": "63,72",
+    "consumo_kwh": "160,00"
+  },
+  "layout_sections": [
+    {
+      "section_name": "Informações da Empresa e Documento",
+      "content": {
+        "nome_empresa": "Celpe Grupo Neoenergia",
+        "endereco_empresa": "Av. João de Barros, 111, Boa Vista, Recife, Pernambuco – CEP 50050-902",
+        "cnpj_empresa": "10.835.932/0001-08",
+        "inscricao_estadual_empresa": "0005943-93",
+        "site_empresa": "www.celpe.com.br",
+        "tipo_documento": "NOTA FISCAL • FATURA • CONTA DE ENERGIA ELÉTRICA",
+        "informacao_tarifa": "Tarifa Social de Energia Elétrica: Criada pela Lei 10.438, de 26/04/02"
+      }
+    },
+    {
+      "section_name": "Dados do Cliente",
+      "content": {
+        "titular": "MARIA JOSÉ DA SILVA",
+        "cpf": "123.456.789-10"
+      }
+    },
+    {
+      "section_name": "Endereço da Unidade Consumidora",
+      "content": {
+        "endereco_rua": "RUA JOÃO FERNANDES VIEIRA 175",
+        "bairro_cidade": "BOA VISTA",
+        "cep": "50680-150"
+      }
+    },
+    {
+      "section_name": "Classificação",
+      "content": {
+        "tipo_residencia": "BI RESIDENCIAL",
+        "categoria": "RESIDENCIAL",
+        "fase": "Monofásico"
+      }
+    },
+    {
+      "section_name": "Detalhes da Fatura e Contrato",
+      "content": {
+        "nota_fiscal": {
+          "numero_nota_fiscal": "00000251",
+          "serie_unica": "ÚNICA",
+          "data_emissao": "26/06/2014"
+        },
+        "detalhes_cliente_instalacao": {
+          "data_apresentacao": "03/07/2014",
+          "numero_cliente": "1234567890",
+          "numero_instalacao": "1234567890"
+        },
+        "resumo_cobranca": {
+          "conta_contrato": "1234567890",
+          "mes_ano_referencia": "06/2014",
+          "data_vencimento": "10/07/2014",
+          "data_prevista_proxima_leitura": "25/07/2014",
+          "total_a_pagar_rs": "63,72"
+        }
+      }
+    },
+    {
+      "section_name": "Descrição da Nota Fiscal",
+      "content": {
+        "item": "Consumo Ativo (kWh)",
+        "quantidade": "160,000000",
+        "preco": "0,39825738",
+        "valor_rs": "63,72",
+        "total_da_fatura": "63,72"
+      }
+    },
+    {
+      "section_name": "Demonstrativo de Consumo Desta Nota Fiscal",
+      "content": {
+        "numero_medidor": "1234567890",
+        "tipo_funcao": "CAT",
+        "leitura_anterior": {
+          "data": "27/05/2014",
+          "leitura": "24.630,00"
+        },
+        "leitura_atual": {
+          "data": "26/06/2014",
+          "leitura": "24.790,00"
+        },
+        "numero_dias": "31",
+        "constante": "1,00000",
+        "ajuste": null,
+        "consumo_kwh": "160,00"
+      }
+    },
+    {
+      "section_name": "Histórico de Consumo",
+      "content": {
+        "consumo_mensal_kwh": [
+          {
+            "mes_ano": "JUL 14",
+            "kwh": "156"
+          },
+          {
+            "mes_ano": "JUN 14",
+            "kwh": "160"
+          },
+          {
+            "mes_ano": "MAI 14",
+            "kwh": "155"
+          },
+          {
+            "mes_ano": "ABR 14",
+            "kwh": "109"
+          },
+          {
+            "mes_ano": "MAR 14",
+            "kwh": "152"
+          },
+          {
+            "mes_ano": "FEV 14",
+            "kwh": "157"
+          },
+          {
+            "mes_ano": "JAN 14",
+            "kwh": "151"
+          },
+          {
+            "mes_ano": "DEZ 13",
+            "kwh": "155"
+          },
+          {
+            "mes_ano": "NOV 13",
+            "kwh": "166"
+          },
+          {
+            "mes_ano": "OUT 13",
+            "kwh": "174"
+          },
+          {
+            "mes_ano": "SET 13",
+            "kwh": "152"
+          },
+          {
+            "mes_ano": "AGO 13",
+            "kwh": "165"
+          },
+          {
+            "mes_ano": "JUL 13",
+            "kwh": "156"
+          }
+        ]
+      }
+    },
+    {
+      "section_name": "Informações de Tributos",
+      "content": {
+        "icms": {
+          "base_de_calculo": "63,72",
+          "percentual": "17,00",
+          "valor_do_imposto": "10,83"
+        },
+        "pis": {
+          "base_de_calculo": "63,72",
+          "percentual": "0,89",
+          "valor_do_imposto": "0,83"
+        },
+        "cofins": {
+          "base_de_calculo": "63,72",
+          "percentual": "4,54",
+          "valor_do_imposto": "2,89"
+        }
+      }
+    },
+    {
+      "section_name": "Composição do Consumo",
+      "content": {
+        "geracao_de_energia": {
+          "valor_rs": "26,38",
+          "percentual": "41,40"
+        },
+        "transmissao": {
+          "valor_rs": "1,72",
+          "percentual": "2,70"
+        },
+        "distribuicao_celpe": {
+          "valor_rs": "19,07",
+          "percentual": "29,93"
+        },
+        "encargos_setoriais": {
+          "valor_rs": "2,20",
+          "percentual": "3,45"
+        },
+        "tributos": {
+          "valor_rs": "14,35",
+          "percentual": "22,52"
+        },
+        "total": {
+          "valor_rs": "63,72",
+          "percentual": "100"
+        }
+      }
+    },
+    {
+      "section_name": "Tarifas Aplicadas",
+      "content": {
+        "consumo_ativo_kwh_tarifa": "0,30853000"
+      }
+    },
+    {
+      "section_name": "Reservado ao Fisco",
+      "content": {
+        "codigo": "1379.0B8C.3934.2C4A.0522.633B.9CAA.FB08"
+      }
+    },
+    {
+      "section_name": "Avisos e Informações Importantes",
+      "content": {
+        "aviso_tarifas": "A partir de 2015 entrará em vigor o sistema de bandeiras tarifárias. Neste mês estaria em vigor a bandeira AMARELA, que implicaria uma cobrança adicional em 0,015 R$/kWh. Mais informações em www.aneel.gov.br. Em caso de suspensão de fornecimento, o encerramento do contrato poderá ocorrer após 2 ciclos de faturamento, podendo também ser cobrado o custo de disponibilidade no ciclo em que ocorrer a suspensão. O cliente é compensado quando há violação na continuidade individual ou do nível de tensão de fornecimento. Pagamento em atraso gera Multa 2% (Res. 414/ANEEL-CD/06/10) e juros 1% a.m. (Lei 10.438-25/04/02), no próximo mês. O pagamento desta Nota Fiscal/Fatura deve ser feito somente em espécie. O Cliente é compensado quando há descumprimento do prazo definido para os padrões de atendimento comercial.",
+        "condicoes_gerais_fornecimento": "As condições gerais de fornecimento (Resolução ANEEL 414/2010), tarifas produtos, serviços prestados e tributos se encontram à disposição para consulta, em nossas unidades de atendimento e no site www.celpe.com.br"
+      }
+    },
+    {
+      "section_name": "Duração e Frequência das Interrupções",
+      "content": {
+        "dic": {
+          "valor_apurado_jun_2014": "00,00",
+          "limite_mensal": "00,00",
+          "limite_trimestral": "00,00",
+          "limite_anual": "00,00"
+        },
+        "fic": {
+          "valor_apurado_jun_2014": "00,00",
+          "limite_mensal": "00,00",
+          "limite_trimestral": "00,00",
+          "limite_anual": "00,00"
+        },
+        "dmic": {
+          "valor_apurado_jun_2014": "00,00",
+          "limite_mensal": "00,00",
+          "limite_trimestral": "00,00",
+          "limite_anual": "00,00"
+        },
+        "limite_dicri": "0,00",
+        "eusd_valor_encargo_uso_sistema_distribuicao": "0,00"
+      }
+    },
+    {
+      "section_name": "Níveis de Tensão",
+      "content": {
+        "tensao_nominal_v": "220V",
+        "limite_variacao_v": {
+          "minimo": "201",
+          "maximo": "231"
+        }
+      }
+    },
+    {
+      "section_name": "Informações para Pagamento (Rodapé)",
+      "content": {
+        "conta_contrato": "1234567890",
+        "mes_ano_referencia": "06/2014",
+        "data_vencimento": "10/07/2014",
+        "total_a_pagar_rs": "63,72",
+        "linha_digitavel": "83860000000 711200380001 852236000202 0005797922536",
+        "autorizado_por_regime_especial": "AUTORIZADO POR REGIME ESPECIAL DESPACHO ICMS-PE N° 040/2012 | SEFAZ-PE"
+      }
+    }
+  ],
+  "tables_detected": [
+    "Tabela de Detalhes da Fatura (N° Nota Fiscal, Emissão, N° Cliente, N° Instalação)",
+    "Tabela de Resumo de Cobrança (Conta Contrato, Mês/Ano, Vencimento, Total a Pagar)",
+    "Tabela de Descrição da Nota Fiscal (Consumo Ativo kWh com Quantidade, Preço, Valor)",
+    "Tabela de Demonstrativo de Consumo (Leituras Anterior e Atual, N° Dias, Consumo)",
+    "Tabela de Histórico de Consumo (Consumo mensal em kWh)",
+    "Tabela de Informações de Tributos (ICMS, PIS, COFINS com Base, %, Valor)",
+    "Tabela de Composição do Consumo (Geração, Transmissão, Distribuição, Encargos, Tributos, Total com R$ e %)",
+    "Tabela de Duração e Frequência das Interrupções (DIC, FIC, DMIC com Valores Apurados e Limites)",
+    "Tabela de Níveis de Tensão (Tensão Nominal e Limites de Variação)"
+  ],
+  "confidence_notes": [
+    "O campo 'numero_cliente' foi extraído consistentemente de 'N° DO CLIENTE' e 'CONTA CONTRATO'.",
+    "O campo 'consumo_kwh' foi extraído consistentemente da 'Descrição da Nota Fiscal' e do 'Demonstrativo de Consumo Desta Nota Fiscal'."
+  ],
+  "limitations": [
+    "A qualidade do OCR para pequenos textos pode ser impactada em imagens de menor resolução, mas foi satisfatória neste caso."
+  ]
+}

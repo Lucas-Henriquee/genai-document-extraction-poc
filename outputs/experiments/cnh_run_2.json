@@ -1,0 +1,15 @@
+{
+  "document_type": "CNH",
+  "extracted_fields": {
+    "nome": "LINCE DA SILVA",
+    "cpf": "891.340.611-75",
+    "data_nascimento": "02/05/2017",
+    "data_emissao": "22/10/2013",
+    "data_validade": "02/05/2018",
+    "categoria": "B",
+    "filiacao_pai": "Pai José da Silva",
+    "filiacao_mae": "Mãe Maria da Silva"
+  },
+  "confidence_notes": [],
+  "limitations": []
+}

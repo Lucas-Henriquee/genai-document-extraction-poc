@@ -3,11 +3,16 @@
 __pycache__/
 *.pyc
 
-outputs/experiments/*
-!outputs/experiments/.gitkeep
+data/samples/* 
+!data/samples/README.md
+!data/samples/cnh_sample.jpeg 
+!data/samples/energy_invoice.jpg 
+!data/samples/claude_paper.pdf
 
-reports/*
-!reports/.gitkeep
+!outputs/experiments/ 
+!outputs/experiments/** 
+!outputs/experiments/README.md
 
-!reports/experiment_results.csv
+reports/* 
+!reports/experiment_results.csv 
 !reports/latency_summary.csv
